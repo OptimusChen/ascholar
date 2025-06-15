@@ -1,35 +1,57 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
 export default function MainPage() {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen font-sans text-[#2D2D2D] bg-[#F9F6F1]">
       {/* Header */}
-      <header className="flex items-center justify-between px-8 py-4 shadow-md bg-[#14213D]">
-        <div className="flex items-center space-x-4">
-          <Image src="/ascholar-logo.png" alt="Logo" width={40} height={40} />
-          <h1 className="text-3xl font-serif text-white">AScholar</h1>
+      <header className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-4 shadow-md bg-[#14213D] relative">
+        <div className="flex items-center space-x-4 mb-2 md:mb-0">
+          <Image src="/ascholar-logo.png" alt="Logo" width={60} height={60} />
+          <h1 className="text-2xl md:text-3xl font-serif text-white">AScholar</h1>
         </div>
-        <nav className="space-x-6 text-sm font-medium text-white">
-          <a href="#about" className="hover:text-[#C9A66B]">ABOUT US</a>
-          <a href="#competitions" className="hover:text-[#C9A66B]">COMPETITIONS</a>
-          <a href="#classes" className="hover:text-[#C9A66B]">CLASSES</a>
-          <a href="#founder" className="hover:text-[#C9A66B]">FOUNDER</a>
+        {/* Hamburger for mobile */}
+        <button
+          className="md:hidden text-white focus:outline-none absolute right-4 top-4"
+          onClick={() => setNavOpen((open) => !open)}
+          aria-label="Toggle navigation"
+        >
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d={navOpen ? "M6 18L18 6M6 6l12 12" : "M4 8h16M4 16h16"} />
+          </svg>
+        </button>
+        {/* Nav menu */}
+        <nav
+          className={`
+            flex-col space-y-2 text-sm font-medium text-[#14213D] bg-[#F9F6F1] rounded shadow-md
+            absolute left-0 right-0 top-full mt-2 px-4 py-4 z-20
+            ${navOpen ? "flex" : "hidden"}
+            md:static md:flex md:flex-row md:space-y-0 md:space-x-6 md:bg-transparent md:shadow-none md:rounded-none md:mt-0 md:px-0 md:py-0 md:text-white
+          `}
+        >
+          <a href="#about" className="hover:text-[#C9A66B]" onClick={() => setNavOpen(false)}>ABOUT US</a>
+          <a href="#competitions" className="hover:text-[#C9A66B]" onClick={() => setNavOpen(false)}>COMPETITIONS</a>
+          <a href="#classes" className="hover:text-[#C9A66B]" onClick={() => setNavOpen(false)}>CLASSES</a>
+          <a href="#founder" className="hover:text-[#C9A66B]" onClick={() => setNavOpen(false)}>FOUNDER</a>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden px-2">
         <div
           className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
           style={{ backgroundImage: "url('/pencil-background.jpg')" }}
+          aria-hidden="true"
         />
-        <div className="relative z-10 text-center text-[#14213D] bg-white/80 p-6 rounded-xl shadow-xl">
+        <div className="relative z-10 flex flex-col items-center text-[#14213D] bg-white/80 p-6 rounded-xl shadow-xl">
           <h2 className="text-4xl font-serif font-bold leading-snug mb-4">
-            Cultivating the voices <br /> that shape tomorrow.
+            Cultivating the voices<br className="hidden sm:block" /> that shape tomorrow.
           </h2>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-4">
             <button className="bg-[#C9A66B] text-white px-6 py-2 rounded-full hover:bg-[#b48b58] font-semibold">
               View Competitions
             </button>
