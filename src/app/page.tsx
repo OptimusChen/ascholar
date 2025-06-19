@@ -9,7 +9,7 @@ export default function MainPage() {
   return (
     <div className="flex flex-col min-h-screen font-sans text-[#2D2D2D] bg-[#F9F6F1]">
       {/* Header */}
-      <header className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-4 shadow-md bg-[#14213D] relative">
+      <header className="sticky top-0 z-30 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-4 shadow-md bg-[#14213D] relative">
         <div className="flex items-center space-x-4 mb-2 md:mb-0">
           <Image src="/ascholar-logo.png" alt="Logo" width={60} height={60} />
           <h1 className="text-2xl md:text-3xl font-serif text-white">AScholar</h1>
@@ -47,17 +47,23 @@ export default function MainPage() {
           style={{ backgroundImage: "url('/pencil-background.jpg')" }}
           aria-hidden="true"
         />
-        <div className="relative z-10 flex flex-col items-center text-[#14213D] bg-white/80 p-6 rounded-xl shadow-xl">
+       <div className="relative z-10 flex flex-col items-center text-[#14213D] bg-white/80 p-6 rounded-xl shadow-xl">
           <h2 className="text-4xl font-serif font-bold leading-snug mb-4">
             Cultivating the voices<br className="hidden sm:block" /> that shape tomorrow.
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-4">
-            <button className="bg-[#C9A66B] text-white px-6 py-2 rounded-full hover:bg-[#b48b58] font-semibold">
+            <a
+              href="#competitions"
+              className="bg-[#C9A66B] hover:bg-[#b08a4b] text-[#14213D] font-semibold px-6 py-2 rounded-full"
+            >
               View Competitions
-            </button>
-            <button className="border border-[#C9A66B] text-[#C9A66B] px-6 py-2 rounded-full hover:bg-[#C9A66B] hover:text-white font-semibold">
+            </a>
+            <a
+              href="#classes"
+              className="border border-[#C9A66B] bg-white hover:bg-[#C9A66B] text-[#14213D] font-semibold px-6 py-2 rounded-full"
+            >
               Register for Classes
-            </button>
+            </a>
           </div>
         </div>
       </section>
