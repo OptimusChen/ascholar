@@ -1,0 +1,23 @@
+[
+  {
+    "title": "National Speech Showcase",
+    "category": "Speech",
+    "ageGroup": "High School",
+    "status": "Open",
+    "deadline": "August 15, 2025"
+  },
+  {
+    "title": "Creative Writing Invitational",
+    "category": "Creative Writing",
+    "ageGroup": "Middle School",
+    "status": "Open",
+    "deadline": "September 1, 2025"
+  },
+  {
+    "title": "Analytical Essay Challenge",
+    "category": "Essay",
+    "ageGroup": "High School",
+    "status": "Closed",
+    "deadline": "June 1, 2025"
+  }
+]
